@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商家端 · 校配 MatchCampus</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<canvas id="particleCanvas"></canvas>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">校</div>
+            <div class="nav-logo-text">校配 <span>MatchCampus</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="match.html">匹配演示</a></li>
+            <li><a href="merchant.html" class="active">商家端</a></li>
+            <li><a href="about.html">关于</a></li>
+            <li><a href="match.html" class="nav-cta">立即体验</a></li>
+        </ul>
+        <button class="nav-toggle"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+
+<div class="page-wrapper">
+    <section class="section" style="padding-top:40px;">
+        <div class="container">
+            <div class="dash-header">
+                <div>
+                    <div class="section-eyebrow">Merchant Dashboard</div>
+                    <h2 class="dash-title">商家情报中心</h2>
+                    <p class="dash-subtitle">本周学生需求热度 · 数据更新于 2026-10-14</p>
+                </div>
+                <select class="shop-selector" id="shopSelector"></select>
+            </div>
+
+            <!-- 统计卡片 -->
+            <div class="dash-stats">
+                <div class="dash-stat">
+                    <div class="dash-stat-label">本周需求总量</div>
+                    <div class="dash-stat-num" id="statTotal">0</div>
+                    <div class="dash-stat-trend">↑ 12% 较上周</div>
+                </div>
+                <div class="dash-stat">
+                    <div class="dash-stat-label">高意向需求</div>
+                    <div class="dash-stat-num" id="statHigh">0</div>
+                    <div class="dash-stat-trend">↑ 8% 较上周</div>
+                </div>
+                <div class="dash-stat">
+                    <div class="dash-stat-label">匹配成功率</div>
+                    <div class="dash-stat-num" id="statRate">0%</div>
+                    <div class="dash-stat-trend">↑ 5% 较上周</div>
+                </div>
+                <div class="dash-stat">
+                    <div class="dash-stat-label">潜在营收</div>
+                    <div class="dash-stat-num" id="statRev">¥0</div>
+                    <div class="dash-stat-trend">↑ 15% 较上周</div>
+                </div>
+            </div>
+
+            <!-- 周趋势图 -->
+            <div class="chart-container">
+                <div class="chart-title">📈 本周需求趋势</div>
+                <div id="weeklyChart"></div>
+            </div>
+
+            <!-- 需求排行 + 建议 -->
+            <div class="dash-grid">
+                <div class="chart-container" style="margin-bottom:0;">
+                    <div class="chart-title">🔥 需求热度排行</div>
+                    <div class="demand-rank-list" id="demandRankList"></div>
+                </div>
+                <div class="chart-container" style="margin-bottom:0;">
+                    <div class="chart-title">💡 进货建议</div>
+                    <div class="advice-list" id="adviceList"></div>
+                </div>
+            </div>
+
+            <!-- 客户画像 + 最近订单 -->
+            <div class="dash-grid" style="margin-top:24px;">
+                <div class="chart-container" style="margin-bottom:0;">
+                    <div class="chart-title">👥 客户画像分布</div>
+                    <div class="pie-chart-container">
+                        <div class="pie-chart" style="background: conic-gradient(#B8860B 0% 35%, #D4A84B 35% 60%, #8B92A0 60% 80%, #4A5060 80% 100%);"></div>
+                        <div class="pie-legend">
+                            <div class="pie-legend-item"><div class="pie-dot" style="background:#B8860B;"></div>大一新生 · 35%</div>
+                            <div class="pie-legend-item"><div class="pie-dot" style="background:#D4A84B;"></div>大二大三 · 25%</div>
+                            <div class="pie-legend-item"><div class="pie-dot" style="background:#8B92A0;"></div>大四毕业生 · 20%</div>
+                            <div class="pie-legend-item"><div class="pie-dot" style="background:#4A5060;"></div>考研备考 · 20%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container" style="margin-bottom:0;">
+                    <div class="chart-title">📦 最近订单</div>
+                    <div class="order-list">
+                        <div class="order-item">
+                            <div class="order-info">
+                                <div class="order-title">高数教材 × 5本</div>
+                                <div class="order-time">今天 14:23</div>
+                            </div>
+                            <div class="order-amount">¥100</div>
+                            <div class="order-status done">已完成</div>
+                        </div>
+                        <div class="order-item">
+                            <div class="order-info">
+                                <div class="order-title">四级真题 × 3本</div>
+                                <div class="order-time">今天 11:05</div>
+                            </div>
+                            <div class="order-amount">¥45</div>
+                            <div class="order-status done">已完成</div>
+                        </div>
+                        <div class="order-item">
+                            <div class="order-info">
+                                <div class="order-title">考研英语资料包</div>
+                                <div class="order-time">昨天 16:40</div>
+                            </div>
+                            <div class="order-amount">¥50</div>
+                            <div class="order-status pending">待发货</div>
+                        </div>
+                        <div class="order-item">
+                            <div class="order-info">
+                                <div class="order-title">线性代数教材 × 2本</div>
+                                <div class="order-time">昨天 10:15</div>
+                            </div>
+                            <div class="order-amount">¥36</div>
+                            <div class="order-status done">已完成</div>
+                        </div>
+                        <div class="order-item">
+                            <div class="order-info">
+                                <div class="order-title">概率论教材 × 1本</div>
+                                <div class="order-time">周一 15:30</div>
+                            </div>
+                            <div class="order-amount">¥18</div>
+                            <div class="order-status done">已完成</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p>校配 MatchCampus · 从人找货，到货找人 · 杭州电子科技大学 创业基础课程项目</p>
+    </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

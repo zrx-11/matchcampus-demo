@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校配 MatchCampus — 校园供需智能匹配平台</title>
+    <meta name="description" content="从人找货，到货找人。校园二手物品、拼单、服务的智能匹配平台。">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<canvas id="particleCanvas"></canvas>
+
+<!-- 导航栏 -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">校</div>
+            <div class="nav-logo-text">校配 <span>MatchCampus</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">首页</a></li>
+            <li><a href="match.html">匹配演示</a></li>
+            <li><a href="merchant.html">商家端</a></li>
+            <li><a href="about.html">关于</a></li>
+            <li><a href="match.html" class="nav-cta">立即体验</a></li>
+        </ul>
+        <button class="nav-toggle"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+
+<div class="page-wrapper">
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge"><span class="dot"></span> 校园供需智能匹配平台</div>
+                <h1>从<span class="gradient">人找货</span><br>到<span class="gradient">货找人</span></h1>
+                <p class="hero-subtitle">校配 MatchCampus</p>
+                <p class="hero-tagline">同学说一句需求，算法帮他找到匹配的供给</p>
+                <div class="hero-btns">
+                    <a href="match.html" class="btn btn-primary">体验匹配演示 →</a>
+                    <a href="merchant.html" class="btn btn-secondary">查看商家端</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-ring"></div>
+                <div class="hero-ring"></div>
+                <div class="hero-ring"></div>
+                <div class="hero-center">校配</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据统计 -->
+    <section class="section-sm">
+        <div class="container">
+            <div class="stats-bar reveal">
+                <div class="stat-item">
+                    <div class="stat-num" data-target="68">0</div>
+                    <div class="stat-label">% 学生找东西超1天</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num" data-target="200">0</div>
+                    <div class="stat-label">元 人均毕业闲置</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num" data-target="42">0</div>
+                    <div class="stat-label">% 拼单失败率</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num" data-target="92">0</div>
+                    <div class="stat-label">% 最高匹配准确率</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 痛点 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">Problem</div>
+                <h2 class="section-title">校园里的<span class="gradient">四个麻烦</span></h2>
+                <div class="gold-divider"></div>
+                <p class="section-desc">我们走访了8家周边小店，回收了200份学生问卷，发现这些问题真实存在</p>
+            </div>
+            <div class="grid-4">
+                <div class="card reveal">
+                    <div class="card-icon">📚</div>
+                    <h3>找二手书</h3>
+                    <p>68%学生找东西超过1天，在群里刷几百条消息。"看天气呗，去年差不多今年也行。"</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon">📦</div>
+                    <h3>毕业闲置浪费</h3>
+                    <p>人均200元东西当废品卖，20块钱全给收废品的。"摆一天没人要，只能卖废品。"</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon">🧋</div>
+                    <h3>拼单凑不齐</h3>
+                    <p>42%学生拼单失败过，室友不喝优惠用不了。"想凑第二杯半价，没人陪。"</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon">🏪</div>
+                    <h3>商家凭感觉进货</h3>
+                    <p>8家店6家无销售记录，经常备多了浪费。"我进货全凭经验，看天气。"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心功能 -->
+    <section class="section" style="background: var(--bg-panel);">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">Solution</div>
+                <h2 class="section-title">校配<span class="gradient">怎么做</span></h2>
+                <div class="gold-divider"></div>
+                <p class="section-desc">一句话需求，三个匹配，不用再刷群</p>
+            </div>
+            <div class="grid-3">
+                <div class="card reveal">
+                    <div class="card-icon">🎯</div>
+                    <h3>智能需求解析</h3>
+                    <p>同学说一句大白话，系统自动提取关键词、打标签、分类、估算预算，不需要选分类传照片。</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon">🔗</div>
+                    <h3>二分图匹配算法</h3>
+                    <p>需求节点与供给节点构建二分图，余弦相似度计算匹配度，推送最相关的三个结果。</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon">📡</div>
+                    <h3>主动推送</h3>
+                    <p>系统持续监听供给侧变化，一旦出现匹配的新物品，立刻通知同学，从人找货变成货找人。</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon">🏪</div>
+                    <h3>商家需求情报</h3>
+                    <p>每周给周边小店推送学生需求周报，告诉老板最近学生在找什么，进货不再凭感觉。</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon">🤝</div>
+                    <h3>拼单撮合</h3>
+                    <p>自动匹配有相同拼单需求的同学，凑齐人数自动成团，第二杯半价不再求人。</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon">🔒</div>
+                    <h3>1公里当面交易</h3>
+                    <p>只做校园周边1公里范围，线下自提，没有邮费比书贵的问题，安全可靠。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工作流程 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal" style="text-align:center; max-width:700px; margin-left:auto; margin-right:auto;">
+                <div class="section-eyebrow">How It Works</div>
+                <h2 class="section-title">三步完成<span class="gradient">匹配</span></h2>
+                <div class="gold-divider" style="margin-left:auto; margin-right:auto;"></div>
+                <p class="section-desc" style="margin:0 auto;">从需求发出到收到匹配，全程不超过10秒</p>
+            </div>
+            <div class="flow-section">
+                <div class="flow-step-card reveal">
+                    <div class="flow-step-num">1</div>
+                    <h4>发需求</h4>
+                    <p>输入一句话<br>比如"求一本高数旧书"</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step-card reveal">
+                    <div class="flow-step-num">2</div>
+                    <h4>系统匹配</h4>
+                    <p>NLP解析+二分图匹配<br>10秒内算出结果</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step-card reveal">
+                    <div class="flow-step-num">3</div>
+                    <h4>收通知</h4>
+                    <p>推3个最优匹配<br>不用刷群等消息</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 用户评价 -->
+    <section class="section" style="background: var(--bg-panel);">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">Testimonials</div>
+                <h2 class="section-title">他们<span class="gradient">怎么说</span></h2>
+                <div class="gold-divider"></div>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-text">以前找本旧书要刷三个群刷两天，现在说一句需求，半小时就有人联系我卖了，省太多时间了。</div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">小</div>
+                        <div>
+                            <div class="testimonial-name">小A</div>
+                            <div class="testimonial-role">大一新生 · 求购二手教材</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-text">毕业季东西太多搬不走，以前只能20块卖给收废品的。现在挂上去第二天就有学弟来收，多卖了150块。</div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">陈</div>
+                        <div>
+                            <div class="testimonial-name">陈学长</div>
+                            <div class="testimonial-role">大四毕业生 · 出售闲置</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-text">开了三年奶茶店，以前进货全凭感觉，经常备多了浪费。现在每周收到学生需求周报，进货精准多了。</div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">王</div>
+                        <div>
+                            <div class="testimonial-name">王老板</div>
+                            <div class="testimonial-role">东区奶茶店 · 付费商家</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 商业模式 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">Business</div>
+                <h2 class="section-title">钱从<span class="gradient">哪来</span></h2>
+                <div class="gold-divider"></div>
+                <p class="section-desc">学生端永久免费，收入来自商家和增值服务</p>
+            </div>
+            <div class="grid-3">
+                <div class="card reveal" style="text-align:center;">
+                    <div class="card-icon" style="margin:0 auto 18px;">💰</div>
+                    <h3>小店订阅</h3>
+                    <p style="font-size:28px; font-weight:800; color:var(--gold-light); margin:12px 0;">¥99<span style="font-size:14px; color:var(--text-dim);">/月</span></p>
+                    <p>每周学生需求情报周报，告诉老板最近学生在找什么</p>
+                </div>
+                <div class="card reveal" style="text-align:center;">
+                    <div class="card-icon" style="margin:0 auto 18px;">📌</div>
+                    <h3>置顶曝光</h3>
+                    <p style="font-size:28px; font-weight:800; color:var(--gold-light); margin:12px 0;">¥5<span style="font-size:14px; color:var(--text-dim);">/次</span></p>
+                    <p>个人闲置优先推给匹配者，想快点卖掉的同学付费</p>
+                </div>
+                <div class="card reveal" style="text-align:center;">
+                    <div class="card-icon" style="margin:0 auto 18px;">⚡</div>
+                    <h3>拼单抽成</h3>
+                    <p style="font-size:28px; font-weight:800; color:var(--gold-light); margin:12px 0;">¥0.5<span style="font-size:14px; color:var(--text-dim);">/单</span></p>
+                    <p>撮合成功微量收费，凑齐5人成团抽一点</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title" style="margin-bottom:20px;">不吹一个亿</h2>
+                <p style="font-size:20px; color:var(--gold-light); margin-bottom:40px;">就吹一个月帮同学少花点时间找东西</p>
+                <a href="match.html" class="btn btn-primary" style="font-size:17px; padding:16px 48px;">立即体验匹配演示</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- 页脚 -->
+<footer class="footer">
+    <div class="container">
+        <p>校配 MatchCampus · 从人找货，到货找人 · 杭州电子科技大学 创业基础课程项目</p>
+    </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

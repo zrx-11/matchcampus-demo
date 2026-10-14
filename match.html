@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匹配演示 · 校配 MatchCampus</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<canvas id="particleCanvas"></canvas>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">校</div>
+            <div class="nav-logo-text">校配 <span>MatchCampus</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="match.html" class="active">匹配演示</a></li>
+            <li><a href="merchant.html">商家端</a></li>
+            <li><a href="about.html">关于</a></li>
+            <li><a href="match.html" class="nav-cta">立即体验</a></li>
+        </ul>
+        <button class="nav-toggle"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+
+<div class="page-wrapper">
+    <section class="section" style="padding-top:40px;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom:32px;">
+                <div class="section-eyebrow">Demo</div>
+                <h2 class="section-title">智能<span class="gradient">匹配演示</span></h2>
+                <div class="gold-divider"></div>
+                <p class="section-desc">输入需求或点击示例，体验从需求解析到匹配推送的全过程</p>
+            </div>
+
+            <div class="match-layout">
+                <!-- 左侧输入 -->
+                <div class="match-panel">
+                    <div class="panel-header">
+                        <div class="panel-header-icon">📝</div>
+                        <div>
+                            <h3>我要找</h3>
+                            <p>说一句你要找什么</p>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <textarea id="demandInput" placeholder="比如：求一本高数旧书，越新越好，预算20以内..."></textarea>
+                    </div>
+                    <button class="btn btn-primary" id="matchBtn" style="width:100%; justify-content:center;">开始匹配</button>
+
+                    <div class="examples">
+                        <div class="demand-bar-label" style="margin:24px 0 12px;">快速体验</div>
+                        <div class="examples-grid" id="exampleGrid"></div>
+                    </div>
+
+                    <div class="history-panel">
+                        <div class="history-title">🕐 最近匹配记录</div>
+                        <div class="history-item" onclick="quickMatch(0)">
+                            <div class="history-item-text">求一本高数旧书</div>
+                            <div class="history-item-time">2分钟前 · 3个匹配</div>
+                        </div>
+                        <div class="history-item" onclick="quickMatch(1)">
+                            <div class="history-item-text">想拼奶茶第二杯半价</div>
+                            <div class="history-item-time">15分钟前 · 3个匹配</div>
+                        </div>
+                        <div class="history-item" onclick="quickMatch(4)">
+                            <div class="history-item-text">求考研英语资料</div>
+                            <div class="history-item-time">1小时前 · 3个匹配</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧结果 -->
+                <div class="match-panel" style="position:static;">
+                    <div class="panel-header">
+                        <div class="panel-header-icon">🎯</div>
+                        <div>
+                            <h3>匹配结果</h3>
+                            <p>系统推送3个最优匹配</p>
+                        </div>
+                    </div>
+                    <div class="results-area" id="resultsArea">
+                        <div class="results-empty">
+                            <div class="icon">🔍</div>
+                            <p>输入你的需求，或点击左侧示例<br>系统会自动解析并匹配3个最优结果</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- 匹配详情模态框 -->
+<div class="modal-overlay" id="matchModal">
+    <div class="modal">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <h3 id="modalName"></h3>
+        <span class="modal-type" id="modalType"></span>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-meta">
+            <div class="meta-item">
+                <div class="meta-label">匹配度</div>
+                <div class="meta-value" id="modalScore"></div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">距离</div>
+                <div class="meta-value">校内1km内</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">交易方式</div>
+                <div class="meta-value">线下自提</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">信用评级</div>
+                <div class="meta-value">★ 4.8/5.0</div>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-contact" onclick="alert('已发起沟通，等待对方回复...')">立即联系</button>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p>校配 MatchCampus · 从人找货，到货找人 · 杭州电子科技大学 创业基础课程项目</p>
+    </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
