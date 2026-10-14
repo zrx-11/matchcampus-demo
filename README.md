@@ -59,8 +59,9 @@
 - 响应式：适配手机/平板/电脑
 - 无外部依赖，纯 HTML/CSS/JS
 
-## 部署到 GitHub Pages
-
+## 已部署到 GitHub Pages
+（https://zrx-11.github.io/matchcampus-demo/）
+## 部署步骤
 1. GitHub 新建仓库
 2. 上传所有文件到仓库根目录
 3. Settings → Pages → Source 选 `Deploy from a branch` → `main` / `(root)`
