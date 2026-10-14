@@ -60,7 +60,7 @@
 - 无外部依赖，纯 HTML/CSS/JS
 
 ## 已部署到 GitHub Pages
-（https://zrx-11.github.io/matchcampus-demo/）
+https://zrx-11.github.io/matchcampus-demo/
 ## 部署步骤
 1. GitHub 新建仓库
 2. 上传所有文件到仓库根目录
